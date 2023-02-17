@@ -6,36 +6,34 @@
 
     <StackPanel>
         <!-- Title bar -->
-        <Grid Background="Orange" Height = "80" ColumnDefinitions = "Auto, Auto, Auto, *, Auto, Auto, *">
-            <Rectangle Grid.Column="0" Width="40"></Rectangle>
-            <Rectangle Grid.Column="1" Width="40"></Rectangle>
-            <Rectangle Grid.Column="2" Width="40"></Rectangle>
-            <StackPanel Grid.Column="3">
+        <Grid Grid.Row="0" Background="Orange" Height = "40" ColumnDefinitions = "Auto, Auto, Auto, *, Auto, Auto, *">
+            <Rectangle Grid.Column="0" Width="120"></Rectangle>
+            <StackPanel Grid.Column="1">
                 <Label>EasySave</Label>
             </StackPanel>
-            <Rectangle Grid.Column="4" Width="40"></Rectangle>
-            <Rectangle Grid.Column="5" Width="40"></Rectangle>
-            <StackPanel Grid.Column="6" Width="40"></StackPanel>
-        </Grid>
-
-        <!-- Bloc 2 -->
-        <Grid Height = "40" ColumnDefinitions = "Auto, *">
-            <Rectangle Grid.Column="0" Fill="Blue" Width="80"></Rectangle>
-            <Rectangle Grid.Column="1"></Rectangle>
-        </Grid>
-
-        <!-- Bloc 3 -->
-        <Grid Background="Red" Height = "40" ColumnDefinitions = "Auto, Auto, *, Auto, *, Auto">
-            <Rectangle Grid.Column="0" Fill="Blue" Width="80"></Rectangle>
-            <Rectangle Grid.Column="1" Width="40"></Rectangle>
-            <Rectangle Fill="Yellow" Grid.Column="2"></Rectangle>
+            <Rectangle Grid.Column="2" Width="80"></Rectangle>
             <Rectangle Grid.Column="3" Width="40"></Rectangle>
-            <Rectangle Fill="Yellow" Grid.Column="4"></Rectangle>
-            <Rectangle Grid.Column="5" Width="40"></Rectangle>
         </Grid>
 
-        <!-- Bloc 4 -->
-        <Grid>
+        <!-- Bloc fixe -->
+        <Grid Grid.Row="1" Height="40" ColumnDefinitions = "Auto, *">
+            <Rectangle Grid.Column="0" Fill="Blue" Width="80"></Rectangle>
+            <Rectangle Grid.Column="1" Fill="#333"></Rectangle>
+        </Grid>
+
+        <!-- Bloc des boutons et infos -->
+        <Grid Grid.Row="2" ColumnDefinitions="Auto, Auto, Auto, *, Auto" Background="#333">
+            <Rectangle Grid.Column="0" Fill="Blue" Width="80"></Rectangle>
+            <Rectangle Grid.Column="1" Fill="Yellow" Width="80"></Rectangle>
+            <Rectangle Grid.Column="2" Fill="Red" Width="40"></Rectangle>
+            <Rectangle Grid.Column="3" Fill="#333"></Rectangle>
+            <Rectangle Grid.Column="4" Fill="Yellow" Width="40"></Rectangle>
+        </Grid>
+
+        <!-- Bloc fixe -->
+        <Grid Grid.Row="3" Height="40" ColumnDefinitions="*, Auto">
+            <Rectangle Grid.Column="0" Fill="#333"></Rectangle>
+            <Rectangle Grid.Column="1" Fill="Blue" Width="80"></Rectangle>
         </Grid>
     </StackPanel>
 </Window>
