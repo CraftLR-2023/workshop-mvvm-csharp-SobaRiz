@@ -1,11 +1,41 @@
 <Window xmlns="https://github.com/avaloniaui"
-        xmlns:vm="using:CraftLR.EasySave.ViewModels"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        x:Class="CraftLR.EasySave.Views.MainWindowView" Title="Menu" Width="250" SizeToContent="Height">
+    xmlns:vm="using:CraftLR.EasySave.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Class="CraftLR.EasySave.Views.MainWindowView" Title="Menu" Width="400" Height="450">
 
     <StackPanel>
-        <Button Width="160">My Button</Button>
+        <!-- Title bar -->
+        <Grid Background="Orange" Height = "80" ColumnDefinitions = "Auto, Auto, Auto, *, Auto, Auto, *">
+            <Rectangle Grid.Column="0" Width="40"></Rectangle>
+            <Rectangle Grid.Column="1" Width="40"></Rectangle>
+            <Rectangle Grid.Column="2" Width="40"></Rectangle>
+            <StackPanel Grid.Column="3">
+                <Label>EasySave</Label>
+            </StackPanel>
+            <Rectangle Grid.Column="4" Width="40"></Rectangle>
+            <Rectangle Grid.Column="5" Width="40"></Rectangle>
+            <StackPanel Grid.Column="6" Width="40"></StackPanel>
+        </Grid>
+
+        <!-- Bloc 2 -->
+        <Grid Height = "40" ColumnDefinitions = "Auto, *">
+            <Rectangle Grid.Column="0" Fill="Blue" Width="80"></Rectangle>
+            <Rectangle Grid.Column="1"></Rectangle>
+        </Grid>
+
+        <!-- Bloc 3 -->
+        <Grid Background="Red" Height = "40" ColumnDefinitions = "Auto, Auto, *, Auto, *, Auto">
+            <Rectangle Grid.Column="0" Fill="Blue" Width="80"></Rectangle>
+            <Rectangle Grid.Column="1" Width="40"></Rectangle>
+            <Rectangle Fill="Yellow" Grid.Column="2"></Rectangle>
+            <Rectangle Grid.Column="3" Width="40"></Rectangle>
+            <Rectangle Fill="Yellow" Grid.Column="4"></Rectangle>
+            <Rectangle Grid.Column="5" Width="40"></Rectangle>
+        </Grid>
+
+        <!-- Bloc 4 -->
+        <Grid>
+        </Grid>
     </StackPanel>
 </Window>
