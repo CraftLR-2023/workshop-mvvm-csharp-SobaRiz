@@ -1,0 +1,74 @@
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace CraftLR.Workshop6;
+
+public static class Program
+{
+    private static Random random = new Random();
+    private static readonly int NBOUVRIER = 4;
+    private static readonly string a = "";
+    private static readonly string b = "";
+    private static Thread[] ouvriers = new Thread[NBOUVRIER];
+    private static readonly object[] outils = new object[NBOUVRIER];
+    
+    public static void Main(string[] _)
+    {
+        for (int i = 0; i < NBOUVRIER; ++i)
+        {
+            ouvriers[i] = new Thread(Philosophe) { Name = "" + i };
+            outils[i] = new object();
+        }
+        
+        Console.WriteLine("Début du repas des ouvriers");
+        foreach (Thread philosophe in ouvriers)
+        {
+            philosophe.Start();
+        }
+        foreach (Thread philosophe in ouvriers)
+        {
+            philosophe.Join();
+        }
+        Console.WriteLine("Fin du repas des ouvriers");
+        Console.Read();
+    }
+    private static void Philosophe()
+    {
+        int i = Int32.Parse(Thread.CurrentThread.Name ?? "0");
+        while (true)
+        {
+            Console.WriteLine("L'ouvrier " + Thread.CurrentThread.Name + " veut manger");
+            Thread.Sleep(random.Next(1000, 5000));
+            lock (outils[i])
+            {
+                if (i/2 = 0)
+                {
+                    a = "la clé à molette";
+                    b = "le tournevis";
+                }
+                else{
+                    a = "le tournevis";
+                    b = "la clé à molette";
+                }
+                Console.WriteLine("L'ouvrier " + Thread.CurrentThread.Name + $" attrape " + a + " {i}");
+                Thread.Sleep(random.Next(1000, 5000));
+                lock (outils[(i+1)%NBOUVRIER])
+                {
+                    Console.WriteLine("L'ouvrier " + Thread.CurrentThread.Name + $" attrape " + b + " {(i+1)%NBOUVRIER}");
+                    Thread.Sleep(random.Next(1000, 5000));
+                    
+                    Console.WriteLine("L'ouvrier " + Thread.CurrentThread.Name + " utilise les deux outils !");
+                    Thread.Sleep(random.Next(1000, 5000));
+                   
+                    Console.WriteLine("L'ouvrier " + Thread.CurrentThread.Name + $" relache " + b + " {(i+1)%NBOUVRIER}");
+                    Thread.Sleep(random.Next(1000, 5000));
+                }
+                Console.WriteLine("L'ouvrier " + Thread.CurrentThread.Name + $" relache " + a + " {i}");
+                Thread.Sleep(random.Next(1000, 5000));
+            }
+            Console.WriteLine("L'ouvrier " + Thread.CurrentThread.Name + " à terminé de manger");
+            Thread.Sleep(random.Next(1000, 5000));
+        }
+    }
+}

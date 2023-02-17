@@ -1,0 +1,132 @@
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace CraftLR.Workshop6;
+
+public static class Program
+{
+    public static readonly object CONSOLELOCK = new object();
+
+    public static void Main(string[] _)
+    {
+        Console.WriteLine("Thread principal débute");
+
+        // CREATING THREADS
+        Thread t1 = new Thread(Method1);
+        Thread t2 = new Thread(Method2);
+        Thread t3 = new Thread(Method3);
+
+        // EXECUTE THREADS
+        t1.Start();
+        t2.Start();
+        t3.Start();
+
+        // Le Thread principal attendra que tous les programmes en cours (ceux suivis de join) soit fini pour se finir
+        t1.Join();
+        t2.Join();
+        t3.Join();
+        Console.WriteLine("Thread principal fini");
+        Console.Read();
+    }
+
+    private static void Method1()
+    {
+        lock (CONSOLELOCK)
+        {
+            Console.WriteLine("Methode 1 begin with " + Thread.CurrentThread.Name);
+        }
+
+        for (int i = 1; i <= 5; i++)
+        {
+            lock (CONSOLELOCK)
+            {
+                Console.Write("[Debut 1-");
+                Thread.Sleep(10); // Sleep for 10 miliseconds
+                Console.WriteLine(i + "]");
+            }
+        }
+
+        Console.WriteLine("Methode 1 finished with " + Thread.CurrentThread.Name);
+    }
+
+    private static void Method2()
+    {
+        lock (CONSOLELOCK)
+        {
+            Console.WriteLine("Methode 2 begin with " + Thread.CurrentThread.Name);
+        }
+
+        for (int i = 1; i <= 5; i++)
+        {
+            lock (CONSOLELOCK)
+            {
+                Console.Write("[Debut 2-");
+                Thread.Sleep(10); // Sleep for 10 miliseconds
+                Console.WriteLine(i + "]");
+            }
+        }
+
+        Console.WriteLine("Methode 2 finished with " + Thread.CurrentThread.Name);
+    }
+
+    private static void Method3()
+    {
+        lock (CONSOLELOCK)
+        {
+            Console.WriteLine("Methode 3 begin with " + Thread.CurrentThread.Name);
+        }
+
+        for (int i = 1; i <= 5; i++)
+        {
+            lock (CONSOLELOCK)
+            {
+                Console.Write("[Debut 3-");
+                Thread.Sleep(10); // Sleep for 10 miliseconds
+                Console.WriteLine(i + "]");
+            }
+        }
+
+        Console.WriteLine("Methode 3 finished with " + Thread.CurrentThread.Name);
+    }
+
+    private static void Method4()
+    {
+        lock (CONSOLELOCK)
+        {
+            Console.WriteLine("Methode 4 begin with " + Thread.CurrentThread.Name);
+        }
+
+        for (int i = 1; i <= 5; i++)
+        {
+            lock (CONSOLELOCK)
+            {
+                Console.Write("[Debut 4-");
+                Thread.Sleep(10); // Sleep for 10 miliseconds
+                Console.WriteLine(i + "]");
+            }
+        }
+
+        Console.WriteLine("Methode 4 finished with " + Thread.CurrentThread.Name);
+    }
+
+    private static void Method5()
+    {
+        lock (CONSOLELOCK)
+        {
+            Console.WriteLine("Methode 5 begin with " + Thread.CurrentThread.Name);
+        }
+
+        for (int i = 1; i <= 5; i++)
+        {
+            lock (CONSOLELOCK)
+            {
+                Console.Write("[Debut 5-");
+                Thread.Sleep(10); // Sleep for 10 miliseconds
+                Console.WriteLine(i + "]");
+            }
+        }
+
+        Console.WriteLine("Methode 5 finished with " + Thread.CurrentThread.Name);
+    }
+}

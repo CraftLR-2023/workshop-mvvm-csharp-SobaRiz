@@ -1,0 +1,63 @@
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace CraftLR.Workshop6;
+
+public static class DinerPhilo
+{
+    private static Random random = new Random();
+    private static readonly int NBPHILOSOPHE = 5;
+    private static Thread[] philosophes = new Thread[NBPHILOSOPHE];
+    private static readonly object[] fourchettes = new object[NBPHILOSOPHE];
+    
+    public static void Main(string[] _)
+    {
+        for (int i = 0; i < NBPHILOSOPHE; ++i)
+        {
+            philosophes[i] = new Thread(Philosophe) { Name = "" + i };
+            fourchettes[i] = new object();
+        }
+        
+        Console.WriteLine("Début du repas des philosophes");
+        foreach (Thread philosophe in philosophes)
+        {
+            philosophe.Start();
+        }
+        foreach (Thread philosophe in philosophes)
+        {
+            philosophe.Join();
+        }
+        Console.WriteLine("Fin du repas des philosophes");
+        Console.Read();
+    }
+    private static void Philosophe()
+    {
+        int i = Int32.Parse(Thread.CurrentThread.Name ?? "0");
+        while (true)
+        {
+            Console.WriteLine("Le philosophe " + Thread.CurrentThread.Name + " veut manger");
+            Thread.Sleep(random.Next(1000, 5000));
+            lock (fourchettes[i])
+            {
+                Console.WriteLine("Le philosophe " + Thread.CurrentThread.Name + $" attrape la fourchette {i}");
+                Thread.Sleep(random.Next(1000, 5000));
+                lock (fourchettes[(i+1)%NBPHILOSOPHE])
+                {
+                    Console.WriteLine("Le philosophe " + Thread.CurrentThread.Name + $" attrape la fourchette {(i+1)%NBPHILOSOPHE}");
+                    Thread.Sleep(random.Next(1000, 5000));
+                    
+                    Console.WriteLine("Le philosophe " + Thread.CurrentThread.Name + " mange !");
+                    Thread.Sleep(random.Next(1000, 5000));
+                   
+                    Console.WriteLine("Le philosophe " + Thread.CurrentThread.Name + $" relache la fourchette {(i+1)%NBPHILOSOPHE}");
+                    Thread.Sleep(random.Next(1000, 5000));
+                }
+                Console.WriteLine("Le philosophe " + Thread.CurrentThread.Name + $" relache la fourchette {i}");
+                Thread.Sleep(random.Next(1000, 5000));
+            }
+            Console.WriteLine("Le philosophe " + Thread.CurrentThread.Name + " à terminé de manger");
+            Thread.Sleep(random.Next(1000, 5000));
+        }
+    }
+}
