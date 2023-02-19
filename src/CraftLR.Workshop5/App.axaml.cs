@@ -2,8 +2,9 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 
-// using CraftLR.Exercice8.Views;
-namespace CraftLR.Exercice8;
+using CraftLR.Workshop5.View;
+
+namespace CraftLR.Workshop5;
 
 public partial class App : Application
 {
@@ -16,7 +17,7 @@ public partial class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            desktop.MainWindow = new TodoItemView();
+            desktop.MainWindow = new MainMenuView();
         }
 
         base.OnFrameworkInitializationCompleted();

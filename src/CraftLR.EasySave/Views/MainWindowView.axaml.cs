@@ -11,4 +11,9 @@ public partial class MainWindowView : Window
     {
         InitializeComponent();
     }
+
+    private void OnItemClicked()
+    {
+        Console.WriteLine("Hello World 1");
+    }
 }

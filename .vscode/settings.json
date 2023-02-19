@@ -2,5 +2,6 @@
     "cSpell.language": "en,fr",
     "cSpell.words": [
         "Avalonia"
-    ]
+    ],
+    "editor.renderWhitespace": "all"
 }

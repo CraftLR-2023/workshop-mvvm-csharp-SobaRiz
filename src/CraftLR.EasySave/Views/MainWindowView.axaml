@@ -2,38 +2,79 @@
     xmlns:vm="using:CraftLR.EasySave.ViewModels"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Class="CraftLR.EasySave.Views.MainWindowView" Title="Menu" Width="400" Height="450">
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Class="CraftLR.EasySave.Views.MainWindowView" Title="Menu" Width="1400" Height="600">
 
-    <StackPanel>
+    <Grid RowDefinitions="2*, 10*, *">
         <!-- Title bar -->
-        <Grid Grid.Row="0" Background="Orange" Height = "40" ColumnDefinitions = "Auto, Auto, Auto, *, Auto, Auto, *">
-            <Rectangle Grid.Column="0" Width="120"></Rectangle>
-            <StackPanel Grid.Column="1">
-                <Label>EasySave</Label>
+        <Grid Grid.Row="0" Background="Orange" ColumnDefinitions = "*, *, 3*, *, *">
+            <Rectangle Grid.Column="0"></Rectangle>
+            <Rectangle Grid.Column="1"></Rectangle>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2">
+                <Label FontWeight="Black">EasySave</Label>
             </StackPanel>
-            <Rectangle Grid.Column="2" Width="80"></Rectangle>
-            <Rectangle Grid.Column="3" Width="40"></Rectangle>
-        </Grid>
-
-        <!-- Bloc fixe -->
-        <Grid Grid.Row="1" Height="40" ColumnDefinitions = "Auto, *">
-            <Rectangle Grid.Column="0" Fill="Blue" Width="80"></Rectangle>
-            <Rectangle Grid.Column="1" Fill="#333"></Rectangle>
+            <Rectangle Grid.Column="3"></Rectangle>
+            <Rectangle Grid.Column="4"></Rectangle>
         </Grid>
 
         <!-- Bloc des boutons et infos -->
-        <Grid Grid.Row="2" ColumnDefinitions="Auto, Auto, Auto, *, Auto" Background="#333">
-            <Rectangle Grid.Column="0" Fill="Blue" Width="80"></Rectangle>
-            <Rectangle Grid.Column="1" Fill="Yellow" Width="80"></Rectangle>
-            <Rectangle Grid.Column="2" Fill="Red" Width="40"></Rectangle>
-            <Rectangle Grid.Column="3" Fill="#333"></Rectangle>
-            <Rectangle Grid.Column="4" Fill="Yellow" Width="40"></Rectangle>
+        <Grid Grid.Row="1" ColumnDefinitions="2*, 3*, 6*, *">
+            <!-- Color Column -->
+            <Grid Grid.Column="0" RowDefinitions="6*, *, *, *, *, *, *, 8*">
+                <Rectangle Grid.Row="0" Fill="#C13838"></Rectangle>
+                <Rectangle Grid.Row="1"></Rectangle>
+                <Rectangle Grid.Row="2" Fill="#C13838"></Rectangle>
+                <Rectangle Grid.Row="3"></Rectangle>
+                <Rectangle Grid.Row="4" Fill="#C13838"></Rectangle>
+                <Rectangle Grid.Row="5"></Rectangle>
+                <Rectangle Grid.Row="6" Fill="#C13838"></Rectangle>
+                <Rectangle Grid.Row="7"></Rectangle>
+            </Grid>
+
+            <!--Buttons Column -->
+            <Grid Grid.Column="1" Margin="1" ShowGridLines="True" HorizontalAlignment="Center" RowDefinitions="*, *, *, *, *, *">
+                <Button Grid.Row="0">Bouton</Button>
+                <Button Grid.Row="1">Bouton</Button>
+                <Button Grid.Row="2">Bouton</Button>
+                <Button Grid.Row="3">Bouton</Button>
+                <Button Grid.Row="4">Bouton</Button>
+                <Button Grid.Row="5">Retour</Button>
+            </Grid>
+            <!--List Column -->
+            <Grid Grid.Column="2" Margin="10" ShowGridLines="False" RowDefinitions="10*, *" Background="#F2F2F2">
+                <ListBox Grid.Row="0">
+                    <ListBoxItem Content="Élément 1"/>
+                    <ListBoxItem Content="Élément 2"/>
+                    <ListBoxItem Content="Élément 3"/>
+                    <ListBoxItem Content="Élément 4"/>
+                    <ListBoxItem Content="Élément 5"/>
+                    <ListBoxItem Content="Élément 6"/>
+                    <ListBoxItem Content="Élément 7"/>
+                    <ListBoxItem Content="Élément 8"/>
+                    <ListBoxItem Content="Élément 9"/>
+                    <ListBoxItem Content="Élément 10"/>
+                    <ListBoxItem Content="Élément 11"/>
+                    <ListBoxItem Content="Élément 12"/>
+                    <ListBoxItem Content="Élément 13"/>
+                    <ListBoxItem Content="Élément 24"/>
+                </ListBox>
+                <Rectangle Grid.Row="1" Margin="4" Fill="#F7819F"></Rectangle>
+            </Grid>
+
+            <!-- Color Column Bis -->
+            <Grid Grid.Column="3" RowDefinitions="8*, *, *, *, *, *, *, 6*">
+                <Rectangle Grid.Row="0"></Rectangle>
+                <Rectangle Grid.Row="1" Fill="#C13838"></Rectangle>
+                <Rectangle Grid.Row="2"></Rectangle>
+                <Rectangle Grid.Row="3" Fill="#C13838"></Rectangle>
+                <Rectangle Grid.Row="4"></Rectangle>
+                <Rectangle Grid.Row="5" Fill="#C13838"></Rectangle>
+                <Rectangle Grid.Row="6"></Rectangle>
+                <Rectangle Grid.Row="7" Fill="#C13838"></Rectangle>
+            </Grid>
         </Grid>
 
-        <!-- Bloc fixe -->
-        <Grid Grid.Row="3" Height="40" ColumnDefinitions="*, Auto">
-            <Rectangle Grid.Column="0" Fill="#333"></Rectangle>
-            <Rectangle Grid.Column="1" Fill="Blue" Width="80"></Rectangle>
+        <Grid Grid.Row="2">
+            <Label>Equipe 3</Label>
         </Grid>
-    </StackPanel>
+    </Grid>
 </Window>
