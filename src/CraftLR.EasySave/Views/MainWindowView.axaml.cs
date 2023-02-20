@@ -7,13 +7,15 @@ namespace CraftLR.EasySave.Views;
 
 public partial class MainWindowView : Window
 {
+    public string P_name { get; set; }
+    public string P_id { get; set; }
     public MainWindowView()
     {
         InitializeComponent();
     }
 
-    private void OnItemClicked()
+    private void IdUser()
     {
-        Console.WriteLine("Hello World 1");
+        Console.WriteLine(P_id);
     }
 }
