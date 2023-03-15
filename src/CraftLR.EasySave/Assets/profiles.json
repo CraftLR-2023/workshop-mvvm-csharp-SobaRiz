@@ -1,0 +1,18 @@
+[
+    {
+        "P_name": "Test",
+        "P_type": true,
+        "P_id": "1",
+        "P_state": "New",
+        "P_sourceDirectory": "SourceToCopy",
+        "P_targetDirectory": "Test"
+    },
+    {
+        "P_name": "TestMultiSave",
+        "P_type": true,
+        "P_id": "2",
+        "P_state": "New",
+        "P_sourceDirectory": "SourceToCopy",
+        "P_targetDirectory": "Test2"
+    }
+]
