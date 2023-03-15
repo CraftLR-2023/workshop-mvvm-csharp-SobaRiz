@@ -41,6 +41,14 @@
                 <Button Grid.Row="4" Background="#CEB2D8">Bouton</Button>
                 <Button Grid.Row="5" Background="#CEB2D8">Retour</Button>
             </Grid>
+
+
+
+
+
+
+
+
             <!--List Column -->
             <Grid Grid.Column="2" Margin="10" ShowGridLines="False" RowDefinitions="10*, *" Background="#F2F2F2">
 <<<<<<< HEAD
@@ -62,16 +70,26 @@
 =======
                 <!--<ListBox Grid.Row="0" Items="{Binding MyItems}" SelectionMode="Multiple,Toggle"/>-->
                 <ListBox Grid.Row="0">
-                    <CheckBox Content="Element aihcdichohf" IsChecked="True"/>
+                    <CheckBox Content="{Binding ProfilList}" IsChecked="True"/>
                     <CheckBox Content="Element FSRDGD" IsChecked="False"/>
                     <CheckBox Content="Element aihcdvdfnfichohf" IsChecked="False"/>
                     <CheckBox Content="Element aihcdwcichohf" IsChecked="False"/>
                 </ListBox>
 >>>>>>> refs/remotes/origin/main
                 <ProgressBar Grid.Row="1" Minimum="0" Maximum="100" Value="75" />
-                <!--<Rectangle Grid.Row="1" Margin="4" Fill="#C13838"></Rectangle>
-                <ProgressBar Grid.Row="1" Minimum="0" Maximum="100" Value="{Binding DownloadProgress}" />-->
+                <!--<ProgressBar Grid.Row="1" Minimum="0" Maximum="100" Value="{Binding DownloadProgress}" />-->
             </Grid>
+
+
+
+
+
+
+
+
+
+
+
 
             <!-- Color Column Bis -->
             <Grid Grid.Column="3" RowDefinitions="8*, *, *, *, *, *, *, 6*">
