@@ -1,0 +1,38 @@
+﻿<Application x:Class="Wpf.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Wpf"
+             StartupUri="View\MainWindow.xaml">
+    <ItemGroup>
+        <ChildProject Include="$(MSBuildThisFileFullPath)">
+            <AdditionalProperties>Instance=1</AdditionalProperties>
+        </ChildProject>
+        <ChildProject Include="$(MSBuildThisFileFullPath)">
+            <AdditionalProperties>Instance=2</AdditionalProperties>
+        </ChildProject>
+        <ChildProject Include="$(MSBuildThisFileFullPath)">
+            <AdditionalProperties>Instance=3</AdditionalProperties>
+        </ChildProject>
+        <ChildProject Include="$(MSBuildThisFileFullPath)">
+            <AdditionalProperties>Instance=4</AdditionalProperties>
+        </ChildProject>
+        <ChildProject Include="$(MSBuildThisFileFullPath)">
+            <AdditionalProperties>Instance=5</AdditionalProperties>
+        </ChildProject>
+    </ItemGroup>
+
+    <Target Name="Build">
+        <MSBuild Projects="@(ChildProject)"
+                 Targets="Delay"
+                 BuildInParallel="true" />
+    </Target>
+
+    <Target Name="Delay">
+        <Message Importance="high" Text="Waiting in instance $(Instance)" />
+        <Exec Command="cmd /c ping 127.0.0.1 -n 6"
+              StandardOutputImportance="low"/>
+    </Target>
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
