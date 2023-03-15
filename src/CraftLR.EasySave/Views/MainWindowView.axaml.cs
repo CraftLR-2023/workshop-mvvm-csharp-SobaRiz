@@ -13,9 +13,12 @@ public partial class MainWindowView : Window
     {
         InitializeComponent();
     }
+<<<<<<< HEAD
 
     private void IdUser()
     {
         Console.WriteLine(P_id);
     }
+=======
+>>>>>>> refs/remotes/origin/main
 }
